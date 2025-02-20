@@ -1,0 +1,77 @@
+export const kimonoReviews = [
+  { id: 1, src: "/img/kimono/kimonoReview1.png", alt: "Kimono Review 1" },
+  { id: 2, src: "/img/kimono/kimonoReview2.png", alt: "Kimono Review 2" },
+  { id: 3, src: "/img/kimono/kimonoReview3.png", alt: "Kimono Review 3" },
+  { id: 4, src: "/img/kimono/kimonoReview4.png", alt: "Kimono Review 4" },
+  { id: 5, src: "/img/kimono/kimonoReview5.png", alt: "Kimono Review 5" },
+  { id: 6, src: "/img/kimono/kimonoReview6.png", alt: "Kimono Review 6" },
+  { id: 7, src: "/img/kimono/kimonoReview7.png", alt: "Kimono Review 7" },
+  { id: 8, src: "/img/kimono/kimonoReview8.png", alt: "Kimono Review 8" },
+  { id: 9, src: "/img/kimono/kimonoReview9.png", alt: "Kimono Review 9" },
+];
+
+export const kimonoItems = [
+  {
+    id: 1,
+    name: "เคยโมโน",
+    price: 500,
+    status: 0,
+    src: "/img/kimono/kimonoReview1.png",
+  },
+  {
+    id: 2,
+    name: "คิโมโนะโกะ",
+    price: 550,
+    status: 0,
+    src: "/img/kimono/kimonoReview2.png",
+  },
+  {
+    id: 3,
+    name: "โคโยโตะ",
+    price: 600,
+    status: 0,
+    src: "/img/kimono/kimonoReview3.png",
+  },
+  {
+    id: 4,
+    name: "คิโมโนะโกะ",
+    price: 600,
+    status: 1,
+    src: "/img/kimono/kimonoReview4.png",
+  },
+  {
+    id: 5,
+    name: "โคโยโตะ",
+    price: 600,
+    status: 1,
+    src: "/img/kimono/kimonoReview5.png",
+  },
+  {
+    id: 6,
+    name: "เคยโมโน",
+    price: 500,
+    status: 1,
+    src: "/img/kimono/kimonoReview6.png",
+  },
+  {
+    id: 7,
+    name: "โคโยโตะ",
+    price: 600,
+    status: 1,
+    src: "/img/kimono/kimonoReview7.png",
+  },
+  {
+    id: 8,
+    name: "คิโมโนะโกะ",
+    price: 550,
+    status: 1,
+    src: "/img/kimono/kimonoReview8.png",
+  },
+  {
+    id: 9,
+    name: "เคยโมโน",
+    price: 500,
+    status: 1,
+    src: "/img/kimono/kimonoReview9.png",
+  },
+];
