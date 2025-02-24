@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { kimonoReviews, kimonoItems } from "../assets/data/kimono";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import Reviews from "../components/Reviews";
-import Items from "../components/Items";
+import Product from "../components/Product";
 import { Link } from "react-router-dom";
-import ImageModal from "../components/ImageModal";
+import ReviewImageModal from "../components/ReviewImageModal";
 
 function Kimono() {
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -78,13 +78,17 @@ function Kimono() {
             </h2>
             <div className="grid grid-cols-2 gap-4">
               {kimonoItems.map((item) => (
-                <Items
+                <Product
                   key={item.id}
                   id={item.id}
                   src={item.src}
                   name={item.name}
                   price={item.price}
+                  size={item.size}
                   status={item.status}
+                  description={item.description}
+                  accessories={item.accessories}
+                  reviewImages={item.reviewImages}
                 />
               ))}
             </div>
@@ -93,7 +97,7 @@ function Kimono() {
       </div>
 
       {/* ✅ ใช้ ImageModal ที่แยกออกมา */}
-      <ImageModal
+      <ReviewImageModal
         images={kimonoReviews}
         swipeDirection={swipeDirection}
         selectedIndex={selectedIndex}

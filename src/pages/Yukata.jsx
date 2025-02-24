@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { yukataReviews, yukataItems } from "../assets/data/yukata";
 import Reviews from "../components/Reviews";
-import Items from "../components/Items";
+import Items from "../components/Product";
 
 function Yukata() {
   const [selectedImage, setSelectedImage] = useState(null);

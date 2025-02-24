@@ -6,7 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSwipeable } from "react-swipeable";
 
-const ImageModal = ({
+const ReviewImageModal = ({
   images,
   swipeDirection,
   selectedIndex,
@@ -30,8 +30,8 @@ const ImageModal = ({
     >
       {/* ปิดภาพ */}
       <button
-        className="absolute top-5 right-5 text-black text-2xl bg-white p-2 rounded-full transition 
-                w-12 h-12 flex items-center justify-center hover:bg-gray-500"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-black text-2xl bg-white/50 p-2 rounded-full transition 
+                w-12 h-12 flex items-center justify-center hover:bg-gray-500 z-1"
         onClick={onClose}
       >
         <FontAwesomeIcon icon={faTimes} />
@@ -70,4 +70,4 @@ const ImageModal = ({
   );
 };
 
-export default ImageModal;
+export default ReviewImageModal;
