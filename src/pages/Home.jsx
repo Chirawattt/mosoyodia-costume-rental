@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="relative flex items-center justify-center min-h-screen bg-black p-4">
+      <div className="relative flex items-center justify-center min-h-[100dvh] sm:min-h-screen bg-black p-4">
         {/* ภาพพื้นหลังเบลอ */}
         <img
           src="/img/HomeBG.png"
@@ -47,21 +47,24 @@ const Home = () => {
               </a>
             ))}
           </div>
+        </div>
 
-          {/* ที่อยู่และเบอร์โทร */}
-          <div className="absolute bottom-10 text-center text-white font-[Prompt] w-full px-4">
-            <p className="flex items-center justify-center space-x-2 mb-2">
-              <span>📞</span> <span>+66 92-828-8883</span>
-            </p>
-            <p className="flex items-center justify-center space-x-2 leading-tight">
-              <span>📍</span>
-              <span>
-                88 ตำบลตลิ่งชัน อำเภอบางปะอิน
-                <br />
-                จังหวัดพระนครศรีอยุธยา 13160
-              </span>
-            </p>
-          </div>
+        {/* ที่อยู่และเบอร์โทร */}
+        <div className="absolute bottom-10 text-center text-white font-[Prompt] w-full px-4">
+          <p className="flex items-center justify-center space-x-2 mb-2">
+            <span>📞</span> <span>+66 92-828-8883</span>
+          </p>
+          <p className="flex items-center justify-center space-x-2 leading-tight">
+            <span>📍</span>
+            <span>
+              88 ตำบลตลิ่งชัน อำเภอบางปะอิน
+              <br />
+              จังหวัดพระนครศรีอยุธยา 13160
+            </span>
+          </p>
+          <p className="mt-2 text-sm">
+            © 2021 MoSo Yodia Cafe&Bar. All rights reserved.
+          </p>
         </div>
       </div>
     </>
