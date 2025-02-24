@@ -1,6 +1,9 @@
 export default function Items({ src, name, price, id, status }) {
   return (
-    <div key={id} className="bg-white/90 p-1 rounded-lg shadow-md text-center">
+    <div
+      key={id}
+      className="bg-gray-300/80 p-1 rounded-lg shadow-md text-center"
+    >
       <div className="relative w-full h-56 rounded-lg mb-1">
         <img
           src={src}

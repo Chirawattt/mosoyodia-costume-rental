@@ -1,31 +1,25 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { kimonoReviews, kimonoItems } from "../assets/data/kimono";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import Reviews from "../components/Reviews";
 import Items from "../components/Items";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faChevronLeft,
-  faChevronRight,
-  faTimes,
-} from "@fortawesome/free-solid-svg-icons";
-import { useSwipeable } from "react-swipeable";
+import ImageModal from "../components/ImageModal";
 
 function Kimono() {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [swipeDirection, setSwipeDirection] = useState(null); // ใช้เก็บทิศทางการเลื่อน
 
-  const handleNext = () => {
+  const onNext = () => {
     setSwipeDirection("left");
     setTimeout(() => {
       setSelectedIndex((prevIndex) => (prevIndex + 1) % kimonoReviews.length);
       setSwipeDirection(null);
     }, 300); // Delay 300ms เพื่อให้ animation ทำงาน
-    console.log(selectedIndex);
   };
 
-  const handlePrev = () => {
+  const onPrev = () => {
     setSwipeDirection("right");
     setTimeout(() => {
       setSelectedIndex((prevIndex) =>
@@ -33,15 +27,7 @@ function Kimono() {
       );
       setSwipeDirection(null);
     }, 300); // Delay 300ms เพื่อให้ animation ทำงาน
-    console.log(selectedIndex);
   };
-
-  const swipeHandlers = useSwipeable({
-    onSwipedLeft: handleNext, // ถ้า swipe ไปทางซ้ายให้เรียกฟังก์ชัน handleNext
-    onSwipedRight: handlePrev, // ถ้า swipe ไปทางขวาให้เรียกฟังก์ชัน handlePrev
-    preventScrollOnSwipe: true, // ป้องกันการ scroll ขณะ swipe
-    trackMouse: true, // ให้สามารถใช้เมาส์เลื่อนได้
-  });
 
   return (
     <>
@@ -85,7 +71,7 @@ function Kimono() {
           {/* รายการชุดกิโมโน */}
           <section className="w-full">
             <h2 className="text-2xl font-bold text-[#ffffff] text-center mb-4">
-              ชุดกิโมโนที่มีให้เช่า
+              ชุดกิโมโนที่มีให้บริการ
             </h2>
             <div className="grid grid-cols-2 gap-4">
               {kimonoItems.map((item) => (
@@ -100,53 +86,18 @@ function Kimono() {
               ))}
             </div>
           </section>
-
-          {/* แสดงภาพขยาย พร้อมปุ่มเลื่อนซ้าย-ขวา + Swipe Gesture */}
-          {selectedIndex !== null && (
-            <div
-              className="fixed inset-0 flex items-center justify-center bg-black/80 z-50"
-              {...swipeHandlers} // รองรับการลากซ้าย-ขวา
-            >
-              {/* ปิดภาพ */}
-              <button
-                className="absolute top-5 right-5 text-white text-2xl bg-gray-700 p-2 rounded-full hover:bg-gray-800 transition"
-                onClick={() => setSelectedIndex(null)}
-              >
-                <FontAwesomeIcon icon={faTimes} />
-              </button>
-
-              {/* ปุ่มย้อนกลับ */}
-              <button
-                className="absolute left-5 text-white text-3xl bg-gray-700 p-3 rounded-full hover:bg-gray-800 transition"
-                onClick={handlePrev}
-              >
-                <FontAwesomeIcon icon={faChevronLeft} />
-              </button>
-
-              {/* รูปภาพพร้อม Animation */}
-              <img
-                src={kimonoReviews[selectedIndex].src}
-                className={`max-w-full max-h-full rounded-lg shadow-lg transition-transform duration-300 ${
-                  swipeDirection === "right"
-                    ? "translate-x-10 opacity-50"
-                    : swipeDirection === "left"
-                    ? "-translate-x-10 opacity-50"
-                    : "translate-x-0 opacity-100"
-                }`}
-                alt="Preview"
-              />
-
-              {/* ปุ่มถัดไป */}
-              <button
-                className="absolute right-5 text-white text-3xl bg-gray-700 p-3 rounded-full hover:bg-gray-800 transition"
-                onClick={handleNext}
-              >
-                <FontAwesomeIcon icon={faChevronRight} />
-              </button>
-            </div>
-          )}
         </div>
       </div>
+
+      {/* ✅ ใช้ ImageModal ที่แยกออกมา */}
+      <ImageModal
+        images={kimonoReviews}
+        swipeDirection={swipeDirection}
+        selectedIndex={selectedIndex}
+        onClose={() => setSelectedIndex(null)}
+        onPrev={onPrev}
+        onNext={onNext}
+      />
     </>
   );
 }
