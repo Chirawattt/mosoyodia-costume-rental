@@ -41,7 +41,7 @@ function Kimono() {
         </Link>
       </nav>
 
-      <div className="relative flex items-center justify-center min-w-md min-h-[100dvh] sm:min-h-screen bg-black p-4 pt-20">
+      <div className="relative flex items-center justify-center min-w-sm min-h-[100dvh] sm:min-h-screen bg-black p-4 pt-20">
         {/* ภาพพื้นหลังเบลอ */}
         <img
           src="/img/HomeBG.png"
