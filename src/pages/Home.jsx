@@ -50,7 +50,7 @@ const Home = () => {
         </div>
 
         {/* ที่อยู่และเบอร์โทร - Always at the Bottom */}
-        <div className="w-full px-4 pb-4 text-center text-white font-[Prompt] z-10 pt-3">
+        <div className="w-full px-4 pb-2 text-center text-white font-[Prompt] z-10 pt-3">
           <p className="flex items-center justify-center space-x-2 mb-2">
             <span>📞</span> <span>+66 92-828-8883</span>
           </p>
