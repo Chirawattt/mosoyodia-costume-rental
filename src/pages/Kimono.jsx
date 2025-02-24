@@ -10,19 +10,39 @@ import {
   faChevronRight,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
+import { useSwipeable } from "react-swipeable";
 
 function Kimono() {
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [swipeDirection, setSwipeDirection] = useState(null); // ใช้เก็บทิศทางการเลื่อน
 
   const handleNext = () => {
-    setSelectedIndex((prevIndex) => (prevIndex + 1) % kimonoReviews.length);
+    setSwipeDirection("right");
+    setTimeout(() => {
+      setSelectedIndex((prevIndex) => (prevIndex + 1) % kimonoReviews.length);
+      setSwipeDirection(null);
+    }, 300); // Delay 300ms เพื่อให้ animation ทำงาน
   };
 
   const handlePrev = () => {
+    setSwipeDirection("left");
+    setTimeout(() => {
+      setSelectedIndex((prevIndex) =>
+        prevIndex === 0 ? kimonoReviews.length - 1 : prevIndex - 1
+      );
+      setSwipeDirection(null);
+    }, 300);
     setSelectedIndex((prevIndex) =>
       prevIndex === 0 ? kimonoReviews.length - 1 : prevIndex - 1
     );
   };
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: handleNext, // ถ้า swipe ไปทางซ้ายให้เรียกฟังก์ชัน handleNext
+    onSwipedRight: handlePrev, // ถ้า swipe ไปทางขวาให้เรียกฟังก์ชัน handlePrev
+    preventScrollOnSwipe: true, // ป้องกันการ scroll ขณะ swipe
+    trackMouse: true, // ให้สามารถใช้เมาส์เลื่อนได้
+  });
 
   return (
     <>
@@ -82,9 +102,12 @@ function Kimono() {
             </div>
           </section>
 
-          {/* แสดงภาพขยาย พร้อมปุ่มเลื่อนซ้าย-ขวา */}
+          {/* แสดงภาพขยาย พร้อมปุ่มเลื่อนซ้าย-ขวา + Swipe Gesture */}
           {selectedIndex !== null && (
-            <div className="fixed inset-0 flex items-center justify-center bg-black/75 z-50">
+            <div
+              className="fixed inset-0 flex items-center justify-center bg-black/80 z-50"
+              {...swipeHandlers} // รองรับการลากซ้าย-ขวา
+            >
               {/* ปิดภาพ */}
               <button
                 className="absolute top-5 right-5 text-white text-2xl bg-gray-700 p-2 rounded-full hover:bg-gray-800 transition"
@@ -101,10 +124,16 @@ function Kimono() {
                 <FontAwesomeIcon icon={faChevronLeft} />
               </button>
 
-              {/* รูปภาพ */}
+              {/* รูปภาพพร้อม Animation */}
               <img
                 src={kimonoReviews[selectedIndex].src}
-                className="max-w-full max-h-full rounded-lg shadow-lg"
+                className={`max-w-full max-h-full rounded-lg shadow-lg transition-transform duration-300 ${
+                  swipeDirection === "right"
+                    ? "translate-x-10 opacity-50"
+                    : swipeDirection === "left"
+                    ? "-translate-x-10 opacity-50"
+                    : "translate-x-0 opacity-100"
+                }`}
                 alt="Preview"
               />
 
