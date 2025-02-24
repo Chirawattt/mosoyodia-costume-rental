@@ -17,7 +17,7 @@ const Home = () => {
         {/* Wrapper ให้คอนเทนต์ขยายตัว */}
         <div className="relative flex flex-col items-center justify-between z-10 text-center w-full max-w-sm min-h-[90vh]">
           {/* ส่วนเนื้อหากลาง */}
-          <div className="flex flex-col items-center justify-center flex-grow mb-10">
+          <div className="flex flex-col items-center justify-center flex-grow mb-4">
             {/* โลโก้ */}
             <img
               src="/img/Logo.jpg"
