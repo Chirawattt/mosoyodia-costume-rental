@@ -17,24 +17,23 @@ function Kimono() {
   const [swipeDirection, setSwipeDirection] = useState(null); // ใช้เก็บทิศทางการเลื่อน
 
   const handleNext = () => {
-    setSwipeDirection("right");
+    setSwipeDirection("left");
     setTimeout(() => {
       setSelectedIndex((prevIndex) => (prevIndex + 1) % kimonoReviews.length);
       setSwipeDirection(null);
     }, 300); // Delay 300ms เพื่อให้ animation ทำงาน
+    console.log(selectedIndex);
   };
 
   const handlePrev = () => {
-    setSwipeDirection("left");
+    setSwipeDirection("right");
     setTimeout(() => {
       setSelectedIndex((prevIndex) =>
         prevIndex === 0 ? kimonoReviews.length - 1 : prevIndex - 1
       );
       setSwipeDirection(null);
-    }, 300);
-    setSelectedIndex((prevIndex) =>
-      prevIndex === 0 ? kimonoReviews.length - 1 : prevIndex - 1
-    );
+    }, 300); // Delay 300ms เพื่อให้ animation ทำงาน
+    console.log(selectedIndex);
   };
 
   const swipeHandlers = useSwipeable({
