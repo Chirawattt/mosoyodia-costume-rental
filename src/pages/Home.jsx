@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="relative flex items-center justify-center min-h-[100dvh] sm:min-h-screen bg-black p-4">
+      <div className="relative flex items-center justify-center min-h-[100dvh] sm:min-h-screen bg-black">
         {/* ภาพพื้นหลังเบลอ */}
         <img
           src="/img/HomeBG.png"

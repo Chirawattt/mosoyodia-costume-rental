@@ -32,7 +32,10 @@ function Kimono() {
   return (
     <>
       {/* แถบเมนูด้านบน */}
-      <nav className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 px-3 py-2 bg-white shadow-lg rounded-b-xl z-50 flex items-center justify-center">
+      <nav
+        className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 px-3 py-2 
+      bg-white shadow-lg rounded-b-xl z-50 flex items-center justify-center"
+      >
         <Link
           to="/"
           className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition"
@@ -41,7 +44,7 @@ function Kimono() {
         </Link>
       </nav>
 
-      <div className="relative flex items-center justify-center min-w-sm min-h-[100dvh] sm:min-h-screen bg-black p-4 pt-20">
+      <div className="relative flex items-center justify-center min-h-[100dvh] sm:min-h-screen bg-black p-4 pt-20">
         {/* ภาพพื้นหลังเบลอ */}
         <img
           src="/img/HomeBG.png"
