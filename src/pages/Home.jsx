@@ -47,21 +47,21 @@ const Home = () => {
               </a>
             ))}
           </div>
-        </div>
 
-        {/* ที่อยู่และเบอร์โทร */}
-        <div className="absolute bottom-10 text-center text-white font-[Prompt] w-full px-4">
-          <p className="flex items-center justify-center space-x-2 mb-2">
-            <span>📞</span> <span>+66 92-828-8883</span>
-          </p>
-          <p className="flex items-center justify-center space-x-2 leading-tight">
-            <span>📍</span>
-            <span>
-              88 ตำบลตลิ่งชัน อำเภอบางปะอิน
-              <br />
-              จังหวัดพระนครศรีอยุธยา 13160
-            </span>
-          </p>
+          {/* ที่อยู่และเบอร์โทร */}
+          <div className="absolute bottom-10 text-center text-white font-[Prompt] w-full px-4">
+            <p className="flex items-center justify-center space-x-2 mb-2">
+              <span>📞</span> <span>+66 92-828-8883</span>
+            </p>
+            <p className="flex items-center justify-center space-x-2 leading-tight">
+              <span>📍</span>
+              <span>
+                88 ตำบลตลิ่งชัน อำเภอบางปะอิน
+                <br />
+                จังหวัดพระนครศรีอยุธยา 13160
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </>
