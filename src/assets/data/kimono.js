@@ -24,6 +24,9 @@ export const kimonoItems = [
       "/img/kimono/kimonoReview1.png",
       "/img/kimono/kimonoReview2.png",
       "/img/kimono/kimonoReview3.png",
+      "/img/kimono/kimonoReview4.png",
+      "/img/kimono/kimonoReview5.png",
+      "/img/kimono/kimonoReview6.png",
     ],
   },
   {

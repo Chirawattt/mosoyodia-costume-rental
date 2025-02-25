@@ -1,13 +1,15 @@
+import Footer from "../components/Footer";
+
 const Home = () => {
   const homeBtnDatas = [
-    { text: "🎎 เช่าชุดกิโมโน", href: "/kimono", color: "#e74c3c" },
-    { text: "👘 เช่าชุดยูกาตะ", href: "/yukata", color: "#278fd4" },
+    { text: "👘 เช่าชุดกิโมโน", href: "/kimono", color: "#e74c3c" },
+    { text: "🎎 เช่าชุดยูกาตะ", href: "/yukata", color: "#278fd4" },
     { text: "🎭 เช่าชุดคอสเพลย์", href: "/cosplay", color: "#9b59b6" },
   ];
 
   return (
     <>
-      <div className="relative flex flex-col items-center justify-between min-h-[100dvh] sm:min-h-screen bg-black">
+      <div className="relative flex flex-col items-center justify-between min-h-dvh sm:min-h-screen bg-black">
         {/* ภาพพื้นหลังเบลอ */}
         <img
           src="/img/HomeBG.png"
@@ -49,23 +51,8 @@ const Home = () => {
           </div>
         </div>
 
-        {/* ที่อยู่และเบอร์โทร - Always at the Bottom */}
-        <div className="w-full px-4 pb-2 text-center text-white font-[Prompt] z-10 pt-3">
-          <p className="flex items-center justify-center space-x-2 mb-2">
-            <span>📞</span> <span>+66 92-828-8883</span>
-          </p>
-          <p className="flex items-center justify-center space-x-2 leading-tight">
-            <span>📍</span>
-            <span>
-              88 ตำบลตลิ่งชัน อำเภอบางปะอิน
-              <br />
-              จังหวัดพระนครศรีอยุธยา 13160
-            </span>
-          </p>
-          <p className="mt-2 text-sm">
-            © 2021 MoSo Yodia Cafe&Bar. All rights reserved.
-          </p>
-        </div>
+        {/* ส่วนท้าย */}
+        <Footer />
       </div>
     </>
   );

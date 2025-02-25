@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import Reviews from "../components/Reviews";
+import Product from "../components/Product";
+import Footer from "../components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { kimonoReviews, kimonoItems } from "../assets/data/kimono";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-import Reviews from "../components/Reviews";
-import Product from "../components/Product";
-import { Link } from "react-router-dom";
 import ReviewImageModal from "../components/ReviewImageModal";
 
 function Kimono() {
@@ -44,7 +45,8 @@ function Kimono() {
         </Link>
       </nav>
 
-      <div className="relative flex items-center justify-center min-h-[100dvh] sm:min-h-screen bg-black p-4 pt-20">
+      {/* ส่วนหลัก */}
+      <div className="relative flex flex-col items-center justify-center min-h-dvh sm:min-h-screen bg-black p-4 pt-20">
         {/* ภาพพื้นหลังเบลอ */}
         <img
           src="/img/HomeBG.png"
@@ -54,9 +56,9 @@ function Kimono() {
         {/* ส่วนเนื้อหาตรงกลาง */}
         <div className="relative flex flex-col items-center justify-center z-10 text-center w-full max-w-sm font-[Prompt]">
           {/* รีวิวการใช้จริง */}
-          <section className="mb-8 w-full">
+          <section className="mb-2 w-full">
             <h2 className="text-2xl font-bold text-[#ffffff] text-center mb-4">
-              🎎 เช่าชุดกิโมโน
+              👘 ภาพรีวิวชุดกิโมโน
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {kimonoReviews.map((review, index) => (
@@ -71,11 +73,19 @@ function Kimono() {
             </div>
           </section>
 
+          {/* Divider ด้านบน */}
+          <hr className="w-full border-gray-300 my-4" />
+
           {/* รายการชุดกิโมโน */}
           <section className="w-full">
             <h2 className="text-2xl font-bold text-[#ffffff] text-center mb-4">
-              ชุดกิโมโนที่มีให้บริการ
+              👘 ชุดที่มีให้บริการ
             </h2>
+            <p className="text-sm text-gray-300 text-center mb-4">
+              ✨ หากลูกค้าอยากเช่าชุด ✨
+              <br />
+              สามารถติดต่อพนักงานหน้าทางเข้าคาเฟ่ได้เลยค่ะ
+            </p>
             <div className="grid grid-cols-2 gap-4">
               {kimonoItems.map((item) => (
                 <Product
@@ -93,6 +103,12 @@ function Kimono() {
               ))}
             </div>
           </section>
+
+          {/* Divider ด้านบน */}
+          <hr className="w-full border-gray-300 mt-8" />
+
+          {/* ส่วนท้าย */}
+          <Footer />
         </div>
       </div>
 

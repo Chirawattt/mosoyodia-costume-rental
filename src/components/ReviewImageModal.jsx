@@ -57,6 +57,7 @@ const ReviewImageModal = ({
         }`}
         alt="Preview"
         draggable="false"
+        onClick={(e) => e.stopPropagation()} // ป้องกันการปิด Modal ขณะกดที่รูป
       />
 
       {/* ปุ่มถัดไป */}
