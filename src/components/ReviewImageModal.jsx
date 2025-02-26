@@ -4,6 +4,7 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 
 const ReviewImageModal = ({
@@ -21,18 +22,32 @@ const ReviewImageModal = ({
     trackMouse: true, // ให้สามารถใช้เมาส์เลื่อนได้
   });
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (selectedIndex !== null) setIsVisible(true);
+  }, [selectedIndex]);
+
   if (selectedIndex === null) return null; // ถ้าไม่มีรูปที่ถูกเลือกให้ไม่แสดงอะไรเลย
+
+  const handleOnClose = () => {
+    setIsVisible(false);
+    setTimeout(onClose, 300); // รอ 300ms จากนั้นจึงปิด Modal
+  };
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center bg-black/80 z-50"
+      className={`fixed inset-0 flex items-center justify-center bg-black/80 z-50 transition-all duration-300 
+                  ${
+                    isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                  }`}
       {...swipeHandlers} // รองรับการลากซ้าย-ขวา
     >
       {/* ปิดภาพ */}
       <button
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-black text-2xl bg-white/50 p-2 rounded-full transition 
                 w-12 h-12 flex items-center justify-center hover:bg-gray-500 z-1"
-        onClick={onClose}
+        onClick={handleOnClose}
       >
         <FontAwesomeIcon icon={faTimes} />
       </button>
@@ -67,6 +82,18 @@ const ReviewImageModal = ({
       >
         <FontAwesomeIcon icon={faChevronRight} />
       </button>
+
+      {/* Indicator แสดงสถานะปัจจุบัน */}
+      <div className="absolute bottom-5 flex justify-center space-x-2">
+        {images.map((_, index) => (
+          <span
+            key={index}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              selectedIndex === index ? "bg-white scale-150" : "bg-gray-500"
+            }`}
+          />
+        ))}
+      </div>
     </div>
   );
 };

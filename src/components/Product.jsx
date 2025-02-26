@@ -40,6 +40,7 @@ export default function Product({
             src={src}
             alt={name}
             className="w-full h-56 object-cover rounded-lg"
+            loading="lazy"
           />
           <p
             className={`absolute right-0 top-0 text-md text-[#fff] font-medium px-2 py-1 rounded-bl-lg rounded-tr-lg ${

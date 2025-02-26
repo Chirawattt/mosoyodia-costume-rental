@@ -1,10 +1,24 @@
+import { useEffect, useState } from "react";
+
 const ImagePreviewModal = ({ image, onClose }) => {
   if (!image) return null; // ถ้าไม่มีรูปภาพให้ไม่แสดงอะไรเลย
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, [image]);
+
+  const handleOnClose = () => {
+    setIsVisible(false);
+    setTimeout(onClose, 300); // รอ 300ms จากนั้นจึงปิด Modal
+  };
 
   return (
     <div
-      className="fixed inset-0 flex flex-col items-center justify-center bg-black/80 z-50"
-      onClick={onClose}
+      className={`fixed inset-0 flex flex-col items-center justify-center bg-black/80 z-50 ${
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
+      } transition-all duration-300`}
+      onClick={handleOnClose}
     >
       <img
         src={image}

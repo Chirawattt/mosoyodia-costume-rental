@@ -1,18 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import ImagePreviewModal from "./ImagePreviewModal";
 
 const ProductDetailModal = ({ product, onClose }) => {
   const [previewImage, setPreviewImage] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (product) setIsVisible(true);
+  }, [product]);
+
+  const handleOnClose = () => {
+    setIsVisible(false);
+    setTimeout(onClose, 300); // รอ 300ms จากนั้นจึงปิด Modal
+  };
 
   if (!product) return null; // ถ้าไม่มีสินค้าให้แสดง Modal ไม่ต้องแสดงอะไรเลย
 
   return (
     <>
       <div
-        className="fixed inset-0 flex items-center justify-center bg-black/80 z-50 p-4 min-h-dvh "
-        onClick={onClose}
+        className={`fixed inset-0 flex items-center justify-center bg-black/80 z-50 p-4 min-h-dvh sm:min-h-screen transition-all duration-300 
+                    ${
+                      isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                    }`}
+        onClick={handleOnClose}
       >
         <div
           className="bg-white p-3 rounded-lg max-w-lg w-full shadow-lg relative text-left max-h-[82vh] overflow-auto"
